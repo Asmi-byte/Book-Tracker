@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Reading Log</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="masthead-top">
+      <span class="eyebrow">Private Collection</span>
+      <span class="eyebrow" id="entryCount">Vol. 000</span>
+    </div>
+    <h1>Reading Log</h1>
+    <p class="masthead-sub">A record of words read and remembered.</p>
+  </header>
+
+  <!-- ADD ENTRY PANEL (looks like a device faceplate) -->
+  <section class="panel">
+    <div class="panel-row">
+      <div class="field field-wide">
+        <label for="title">Title</label>
+        <input type="text" id="title" placeholder="What's on your shelf?" />
+      </div>
+      <div class="field field-wide">
+        <label for="author">Author</label>
+        <input type="text" id="author" placeholder="Asmita Bag..." />
+      </div>
+    </div>
+
+    <div class="panel-row">
+      <!-- STAR RATING -->
+      <div class="field">
+        <label>Rating</label>
+        <div class="stars" id="starRow"></div>
+      </div>
+
+      <!-- READ COUNTER (mechanical counter window) -->
+      <div class="field">
+        <label>Read number</label>
+        <div class="counter">
+          <button type="button" class="counter-btn" id="decRead" aria-label="Decrease">&minus;</button>
+          <div class="counter-window">
+            <span id="readDigits">01</span>
+          </div>
+          <button type="button" class="counter-btn" id="incRead" aria-label="Increase">+</button>
+        </div>
+        <span class="counter-label" id="readLabel">First read</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="review-label-row">
+        <label for="review">Review</label>
+        <span class="word-count" id="wordCount">0 / 200</span>
+      </div>
+      <textarea id="review" rows="4" placeholder="A few words on it..."></textarea>
+    </div>
+
+    <button class="btn-save" id="saveEntry">Log this book</button>
+  </section>
+
+  <!-- LOG ENTRIES -->
+  <section class="log-grid" id="logGrid"></section>
+
+  <p class="empty-state" id="emptyState">No entries yet. Log your first book above.</p>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  --cream: #EDE9DF;
+  --panel: #E4DFD1;
+  --ink: #1B1916;
+  --graphite: #6E6656;
+  --hairline: #C9C0AC;
+  --accent: #C1502E;
+  --accent-dim: #C1502E33;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  margin: 0;
+  padding: 32px 20px 80px;
+}
+
+h1, .btn-save, .eyebrow {
+  font-family: 'Archivo', sans-serif;
+}
+
+/* ---------- MASTHEAD ---------- */
+.masthead {
+  max-width: 900px;
+  margin: 0 auto 32px;
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 16px;
+}
+
+.masthead-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+
+.masthead h1 {
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.masthead-sub {
+  margin: 6px 0 0;
+  color: var(--graphite);
+  font-size: 14px;
+}
+
+/* ---------- PANEL (device faceplate) ---------- */
+.panel {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  background: var(--panel);
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  padding: 24px;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 8px 20px rgba(27,25,22,0.06);
+}
+
+.panel-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-wide { flex: 1; min-width: 200px; }
+
+label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  font-weight: 600;
+}
+
+input[type="text"], textarea {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 15px;
+  padding: 10px 12px;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  background: var(--cream);
+  color: var(--ink);
+  resize: none;
+}
+
+input[type="text"]:focus, textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.review-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.word-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--graphite);
+}
+
+/* ---------- STAR RATING ---------- */
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  font-size: 28px;
+  line-height: 28px;
+  color: var(--hairline);
+  cursor: pointer;
+  user-select: none;
+}
+
+.star .fill {
+  position: absolute;
+  top: 0; left: 0;
+  overflow: hidden;
+  color: var(--accent);
+  pointer-events: none;
+  width: 0%;
+}
+
+.star .half-btn, .star .full-btn {
+  position: absolute;
+  top: 0; height: 100%;
+  width: 50%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.star .half-btn { left: 0; }
+.star .full-btn { left: 50%; }
+
+/* ---------- READ COUNTER ---------- */
+.counter {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.counter-btn {
+  width: 30px;
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+.counter-btn:first-child { border-radius: 4px 0 0 4px; }
+.counter-btn:last-child { border-radius: 0 4px 4px 0; }
+.counter-btn:hover { background: var(--accent); }
+
+.counter-window {
+  background: #14120F;
+  color: #E8C86A;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 6px 14px;
+  min-width: 52px;
+  text-align: center;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.counter-label {
+  font-size: 11px;
+  color: var(--graphite);
+  margin-top: 4px;
+}
+
+/* ---------- SAVE BUTTON ---------- */
+.btn-save {
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  padding: 12px 22px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.btn-save:hover { background: var(--accent); }
+
+/* ---------- LOG GRID ---------- */
+.log-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.entry-card {
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+}
+
+.entry-strip {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.entry-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.entry-author {
+  font-size: 12px;
+  color: #C9C0AC;
+  margin-top: 2px;
+}
+
+.entry-delete {
+  background: none;
+  border: none;
+  color: #C9C0AC;
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px;
+}
+.entry-delete:hover { color: var(--accent); }
+
+.entry-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.entry-stars {
+  color: var(--accent);
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.entry-review {
+  font-size: 13.5px;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.entry-meta {
+  border-top: 1px solid var(--hairline);
+  padding-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--graphite);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.empty-state {
+  max-width: 900px;
+  margin: 40px auto 0;
+  text-align: center;
+  color: var(--graphite);
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .panel-row { flex-direction: column; }
+}
